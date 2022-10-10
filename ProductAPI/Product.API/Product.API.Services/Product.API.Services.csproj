@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Events\**" />
+    <EmbeddedResource Remove="Events\**" />
+    <None Remove="Events\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\EventBus\EventBus.Base\EventBus.Base.csproj" />
+    <ProjectReference Include="..\..\..\EventBus\EventBus.Factory\EventBus.Factory.csproj" />
+    <ProjectReference Include="..\Product.API.Models\Product.API.Models.csproj" />
+    <ProjectReference Include="..\Product.API.Infrastructure\Product.API.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Query\" />
+    <None Remove="MediatR.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="MediatR" />
+    <None Remove="Commands\" />
+    <None Remove="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Events\ProductCreatedIntegrationEvent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="MediatR" Version="11.0.0" />
+  </ItemGroup>
+</Project>
